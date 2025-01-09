@@ -16,6 +16,8 @@ public class ScoreActivity extends AppCompatActivity {
 
         TextView tvFinalScore = findViewById(R.id.tv_final_score);
         TextView tvResult = findViewById(R.id.tv_result);
+        TextView tvLocal = findViewById(R.id.tv_score_local);
+        TextView tvVisit = findViewById(R.id.tv_score_visitor);
         Button btnBackToMain = findViewById(R.id.btn_back_to_main);
 
         // Obtener puntajes desde el Intent
@@ -24,6 +26,11 @@ public class ScoreActivity extends AppCompatActivity {
 
         // Mostrar el marcador final
         tvFinalScore.setText("Marcador Final: " + scoreLocal + " - " + scoreVisitor);
+        tvLocal.setText(String.valueOf(scoreLocal)); // Convertir a String
+        tvVisit.setText(String.valueOf(scoreVisitor)); // Convertir a String
+
+
+
 
         // Determinar el resultado
         if (scoreLocal > scoreVisitor) {

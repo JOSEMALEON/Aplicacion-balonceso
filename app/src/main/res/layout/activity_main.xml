@@ -4,13 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@android:color/background_light">
 
     <!-- Nombres de equipos -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingVertical="8dp">
 
         <TextView
             android:id="@+id/tv_team_local"
@@ -18,8 +20,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Equipo Local"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textStyle="bold"
+            android:textColor="@android:color/holo_blue_dark"
             android:gravity="start" />
 
         <TextView
@@ -28,8 +31,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Equipo Visitante"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textStyle="bold"
+            android:textColor="@android:color/holo_red_dark"
             android:gravity="end" />
     </LinearLayout>
 
@@ -46,7 +50,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="0"
-            android:textSize="36sp"
+            android:textSize="48sp"
+            android:textStyle="bold"
             android:textColor="@android:color/holo_blue_dark"
             android:gravity="center" />
 
@@ -56,67 +61,88 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="0"
-            android:textSize="36sp"
+            android:textSize="48sp"
+            android:textStyle="bold"
             android:textColor="@android:color/holo_red_dark"
             android:gravity="center" />
     </LinearLayout>
 
-    <!-- Botones de puntos para equipo local -->
+    <!-- Botones de puntuación -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingVertical="8dp">
+        android:paddingVertical="16dp">
 
-        <Button
-            android:id="@+id/btn_add1_local"
+        <!-- Botones equipo local -->
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="+1 Local" />
+            android:orientation="vertical"
+            android:gravity="center">
 
-        <Button
-            android:id="@+id/btn_add2_local"
+            <Button
+                android:id="@+id/btn_add1_local"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+1"
+                android:backgroundTint="@android:color/holo_blue_light"
+                android:textColor="@android:color/white"
+                android:layout_marginBottom="8dp" />
+
+            <Button
+                android:id="@+id/btn_add2_local"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+2"
+                android:backgroundTint="@android:color/holo_blue_light"
+                android:textColor="@android:color/white"
+                android:layout_marginBottom="8dp" />
+
+            <Button
+                android:id="@+id/btn_subtract1_local"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-1"
+                android:backgroundTint="@android:color/holo_blue_dark"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+
+        <!-- Botones equipo visitante -->
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="+2 Local" />
+            android:orientation="vertical"
+            android:gravity="center">
 
-        <Button
-            android:id="@+id/btn_subtract1_local"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="-1 Local" />
-    </LinearLayout>
+            <Button
+                android:id="@+id/btn_add1_visitor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+1"
+                android:backgroundTint="@android:color/holo_red_light"
+                android:textColor="@android:color/white"
+                android:layout_marginBottom="8dp" />
 
-    <!-- Botones de puntos para equipo visitante -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingVertical="8dp">
+            <Button
+                android:id="@+id/btn_add2_visitor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+2"
+                android:backgroundTint="@android:color/holo_red_light"
+                android:textColor="@android:color/white"
+                android:layout_marginBottom="8dp" />
 
-        <Button
-            android:id="@+id/btn_add1_visitor"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="+1 Visitante" />
-
-        <Button
-            android:id="@+id/btn_add2_visitor"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="+2 Visitante" />
-
-        <Button
-            android:id="@+id/btn_subtract1_visitor"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="-1 Visitante" />
+            <Button
+                android:id="@+id/btn_subtract1_visitor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-1"
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
     </LinearLayout>
 
     <!-- Botones de reinicio y resultados -->
@@ -124,20 +150,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingVertical="16dp">
+        android:gravity="center"
+        android:paddingTop="16dp">
 
         <Button
             android:id="@+id/btn_reset"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Reiniciar" />
+            android:text="Reiniciar"
+            android:backgroundTint="@android:color/darker_gray"
+            android:textColor="@android:color/white"
+            android:layout_marginEnd="16dp" />
 
         <Button
             android:id="@+id/btn_show_results"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Resultados" />
+            android:text="Resultados"
+            android:backgroundTint="@android:color/black"
+            android:textColor="@android:color/white" />
     </LinearLayout>
 </LinearLayout>
